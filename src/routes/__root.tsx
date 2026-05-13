@@ -8,6 +8,8 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { SiteSidebar } from "@/components/SiteSidebar";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 import { Logo } from "@/components/Logo";
 
 import appCss from "../styles.css?url";
@@ -81,9 +83,13 @@ function RootComponent() {
       <div className="min-h-screen w-full bg-background">
         <SiteSidebar />
         <Logo />
-        <main className="md:ml-64 min-h-screen">
-          <Outlet />
-        </main>
+        <div className="md:ml-64 flex min-h-screen flex-col">
+          <SiteHeader />
+          <main className="flex-1">
+            <Outlet />
+          </main>
+          <SiteFooter />
+        </div>
       </div>
     </QueryClientProvider>
   );
