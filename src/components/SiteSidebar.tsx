@@ -36,9 +36,9 @@ export function SiteSidebar() {
       )}
 
       <aside
-        className={`fixed top-0 left-0 z-50 h-screen w-64 bg-sidebar text-sidebar-foreground flex flex-col border-r border-sidebar-border transition-transform duration-300 ${
+        className={`fixed top-0 left-0 z-50 h-screen w-64 bg-sidebar text-sidebar-foreground flex flex-col border-r border-sidebar-border transition-transform duration-300 md:hidden ${
           open ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0`}
+        }`}
       >
         <div className="flex items-center justify-between p-6 border-b border-sidebar-border">
           <div>
