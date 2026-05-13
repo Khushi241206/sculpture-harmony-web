@@ -10,7 +10,6 @@ import {
 import { SiteSidebar } from "@/components/SiteSidebar";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { Logo } from "@/components/Logo";
 
 import appCss from "../styles.css?url";
 
@@ -80,16 +79,13 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen w-full bg-background">
+      <div className="flex min-h-screen w-full flex-col bg-background">
+        <SiteHeader />
         <SiteSidebar />
-        <Logo />
-        <div className="md:ml-64 flex min-h-screen flex-col">
-          <SiteHeader />
-          <main className="flex-1">
-            <Outlet />
-          </main>
-          <SiteFooter />
-        </div>
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <SiteFooter />
       </div>
     </QueryClientProvider>
   );
