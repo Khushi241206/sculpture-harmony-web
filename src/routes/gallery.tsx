@@ -1,5 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import collage from "@/assets/collage.jpeg";
+import g1 from "@/assets/gallery-1.jpeg";
+import g2 from "@/assets/gallery-2.jpeg";
+import g3 from "@/assets/gallery-3.jpeg";
+import g4 from "@/assets/gallery-4.jpeg";
 
 export const Route = createFileRoute("/gallery")({
   head: () => ({
@@ -11,15 +14,11 @@ export const Route = createFileRoute("/gallery")({
   component: Gallery,
 });
 
-const captions = [
-  "Magnum Opus — Exterior",
-  "Aesthetic Landscaping",
-  "Avant-Garde Lounge",
-  "When Imagination Lives",
-  "Waterbody & Pool Deck",
-  "Gazebo Night View",
-  "A Distinct Café",
-  "Authentic Greens",
+const items = [
+  { src: g1, caption: "Magnum Opus — Tower Exterior" },
+  { src: g2, caption: "Central Lawn & Kids' Play Area" },
+  { src: g3, caption: "Library & Indoor Games Lounge" },
+  { src: g4, caption: "Aerial View — Landscape Courtyard" },
 ];
 
 function Gallery() {
@@ -32,29 +31,25 @@ function Gallery() {
           Renders and impressions from Sculpture — exteriors, interiors, amenity spaces, and landscape design.
         </p>
 
-        {/* Featured collage */}
-        <div className="mb-12 rounded-2xl overflow-hidden shadow-elegant border border-border">
-          <img src={collage} alt="Sculpture project collage" className="w-full h-auto" />
-        </div>
-
-        {/* Caption tiles using cropped portions of the collage via background-position */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {captions.map((c, i) => (
-            <div key={c} className="group relative aspect-square overflow-hidden rounded-lg shadow-elegant border border-border">
-              <div
-                className="absolute inset-0 bg-no-repeat transition-transform duration-700 group-hover:scale-110"
-                style={{
-                  backgroundImage: `url(${collage})`,
-                  backgroundSize: "400% 400%",
-                  backgroundPosition: `${(i % 4) * 33}% ${Math.floor(i / 4) * 33}%`,
-                }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-              <div className="absolute bottom-3 left-3 right-3">
-                <p className="text-white text-xs uppercase tracking-widest opacity-80">0{i + 1}</p>
-                <p className="text-white text-sm font-medium">{c}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {items.map((it, i) => (
+            <figure
+              key={it.caption}
+              className="group relative overflow-hidden rounded-2xl shadow-elegant border border-border bg-card"
+            >
+              <div className="aspect-[4/3] overflow-hidden">
+                <img
+                  src={it.src}
+                  alt={it.caption}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
               </div>
-            </div>
+              <figcaption className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black/80 to-transparent">
+                <p className="text-white/70 text-[10px] uppercase tracking-[0.3em]">0{i + 1}</p>
+                <p className="text-white text-base md:text-lg font-medium">{it.caption}</p>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </div>
