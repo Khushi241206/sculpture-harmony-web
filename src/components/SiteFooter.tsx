@@ -1,5 +1,12 @@
 import { Link } from "@tanstack/react-router";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, Download } from "lucide-react";
+
+const PHONE = "+919998877665";
+const PHONE_DISPLAY = "+91 99988 77665";
+const EMAIL = "sales@vibgyorreality.com";
+const WHATSAPP_MSG = encodeURIComponent(
+  "Hi, I'm interested in the Sculpture project at Ognaj. Please share details."
+);
 
 export function SiteFooter() {
   return (
@@ -11,7 +18,38 @@ export function SiteFooter() {
             Luxurious 3 & 4 BHK duplex residences by Vibgyor Reality. 154 units across 1.37 acres
             with 21 amenities and 40% open green space.
           </p>
-          <p className="mt-4 text-[10px] leading-relaxed text-sidebar-foreground/50">
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              href={`https://wa.me/${PHONE.replace("+", "")}?text=${WHATSAPP_MSG}`}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 bg-[#25D366] text-white px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition shadow-elegant"
+            >
+              <MessageCircle className="h-4 w-4" /> WhatsApp
+            </a>
+            <a
+              href={`tel:${PHONE}`}
+              className="inline-flex items-center gap-2 bg-sidebar-accent text-sidebar-accent-foreground px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition shadow-elegant"
+            >
+              <Phone className="h-4 w-4" /> Call
+            </a>
+            <a
+              href={`mailto:${EMAIL}?subject=Enquiry%20-%20Sculpture%20Project`}
+              className="inline-flex items-center gap-2 border border-sidebar-border text-sidebar-foreground px-4 py-2 rounded-md text-sm font-medium hover:border-sidebar-accent hover:text-sidebar-accent transition"
+            >
+              <Mail className="h-4 w-4" /> Email
+            </a>
+            <a
+              href="/Sculpture_Brochure.pdf"
+              download
+              className="inline-flex items-center gap-2 border border-sidebar-border text-sidebar-foreground px-4 py-2 rounded-md text-sm font-medium hover:border-sidebar-accent hover:text-sidebar-accent transition"
+            >
+              <Download className="h-4 w-4" /> Brochure
+            </a>
+          </div>
+
+          <p className="mt-6 text-[10px] leading-relaxed text-sidebar-foreground/50">
             RERA: PR/GJ/AHMEDABAD/RAA14582/261224/301229
           </p>
         </div>
@@ -21,11 +59,11 @@ export function SiteFooter() {
           <ul className="space-y-3 text-sm text-sidebar-foreground/80">
             <li className="flex items-start gap-2">
               <Phone className="h-4 w-4 mt-0.5 text-sidebar-accent" />
-              <a href="tel:+919998877665" className="hover:text-sidebar-accent">+91 99988 77665</a>
+              <a href={`tel:${PHONE}`} className="hover:text-sidebar-accent">{PHONE_DISPLAY}</a>
             </li>
             <li className="flex items-start gap-2">
               <Mail className="h-4 w-4 mt-0.5 text-sidebar-accent" />
-              <a href="mailto:sales@vibgyorreality.com" className="hover:text-sidebar-accent">sales@vibgyorreality.com</a>
+              <a href={`mailto:${EMAIL}`} className="hover:text-sidebar-accent break-all">{EMAIL}</a>
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="h-4 w-4 mt-0.5 text-sidebar-accent" />
@@ -51,6 +89,17 @@ export function SiteFooter() {
         <p>© {new Date().getFullYear()} Vibgyor Reality · Developed by Team Atul</p>
         <p>Possession Oct 2027 · Starting ₹1.65 Cr*</p>
       </div>
+
+      {/* Floating WhatsApp action */}
+      <a
+        href={`https://wa.me/${PHONE.replace("+", "")}?text=${WHATSAPP_MSG}`}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Chat on WhatsApp"
+        className="fixed bottom-5 right-5 z-40 h-14 w-14 rounded-full bg-[#25D366] text-white shadow-elegant flex items-center justify-center hover:scale-105 transition"
+      >
+        <MessageCircle className="h-7 w-7" />
+      </a>
     </footer>
   );
 }
