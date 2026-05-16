@@ -131,7 +131,7 @@ function Contact() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <a href="/Sculpture_Brochure.pdf" download className="bg-card border border-border rounded-lg p-6 hover:border-primary transition text-left block">
+              <a href="/Sculpture_Brochure.pdf" download="Sculpture_Brochure.pdf" target="_blank" rel="noreferrer" className="bg-card border border-border rounded-lg p-6 hover:border-primary transition text-left block">
                 <Download className="h-6 w-6 text-primary mb-3" />
                 <div className="font-medium">Download Brochure</div>
                 <div className="text-xs text-muted-foreground mt-1">Full project PDF</div>
