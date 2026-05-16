@@ -42,7 +42,9 @@ export function SiteFooter() {
             </a>
             <a
               href="/Sculpture_Brochure.pdf"
-              download
+              download="Sculpture_Brochure.pdf"
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 border border-sidebar-border text-sidebar-foreground px-4 py-2 rounded-md text-sm font-medium hover:border-sidebar-accent hover:text-sidebar-accent transition"
             >
               <Download className="h-4 w-4" /> Brochure
