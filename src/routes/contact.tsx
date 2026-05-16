@@ -83,7 +83,7 @@ function Contact() {
             className="flex items-center justify-center gap-2 bg-card border border-border px-4 py-3 rounded-md font-medium hover:border-primary transition">
             <Mail className="h-5 w-5 text-primary" /> Email Us
           </a>
-          <a href="/Sculpture_Brochure.pdf" download
+          <a href="/Sculpture_Brochure.pdf" download="Sculpture_Brochure.pdf" target="_blank" rel="noreferrer"
             className="flex items-center justify-center gap-2 bg-card border border-border px-4 py-3 rounded-md font-medium hover:border-primary transition">
             <Download className="h-5 w-5 text-primary" /> Brochure
           </a>
