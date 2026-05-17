@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { MapPin, GraduationCap, Bus, Hospital, ShoppingBag, Utensils, Plane, TrainFront } from "lucide-react";
+import locationHero from "@/assets/location-hero.jpg";
 
 export const Route = createFileRoute("/location")({
   head: () => ({
@@ -26,15 +27,22 @@ function Location() {
   const mapSrc = "https://www.google.com/maps?q=Ognaj+Circle,+S.P.+Ring+Road,+Ahmedabad,+Gujarat&output=embed";
 
   return (
-    <div className="min-h-screen pt-20 md:pt-24 pb-20 px-6 md:px-16 bg-background">
-      <div className="max-w-6xl mx-auto">
-        <p className="text-primary text-xs tracking-[0.3em] uppercase mb-3">Location</p>
-        <h1 className="font-display text-5xl md:text-6xl mb-4">Ognaj — On The Rise.</h1>
-        <p className="text-muted-foreground max-w-3xl mb-8 leading-relaxed">
-          Opp. Sampriya Flat, B/h Stonac, B/h IOC Petrol Pump · S.P Ring Road, Ognaj Circle,
-          North West, Ahmedabad. A fast-developing corridor on Sardar Patel Ring Road, connected via
-          Sarkhej-Gandhinagar Highway and Gujarat SH-41.
-        </p>
+    <div className="min-h-screen pb-20 bg-background">
+      {/* Hero */}
+      <div className="relative h-[40vh] md:h-[55vh] overflow-hidden">
+        <img src={locationHero} alt="Ognaj aerial view" className="absolute inset-0 w-full h-full object-cover" width={1536} height={768} />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
+        <div className="relative h-full flex flex-col justify-end px-6 md:px-16 pb-10 max-w-6xl mx-auto">
+          <p className="text-primary text-xs tracking-[0.3em] uppercase mb-3">Location</p>
+          <h1 className="font-display text-5xl md:text-7xl text-foreground">Ognaj — On The Rise.</h1>
+          <p className="text-muted-foreground max-w-2xl mt-4">
+            S.P Ring Road, Ognaj Circle, North West Ahmedabad — a fast-developing corridor connected via
+            Sarkhej-Gandhinagar Highway and Gujarat SH-41.
+          </p>
+        </div>
+      </div>
+
+      <div className="px-6 md:px-16 max-w-6xl mx-auto mt-12">
 
         {/* Map */}
         <div className="rounded-2xl overflow-hidden border border-border shadow-elegant mb-12">

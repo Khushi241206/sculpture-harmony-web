@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import aboutHero from "@/assets/about-hero.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -12,15 +13,22 @@ export const Route = createFileRoute("/about")({
 
 function About() {
   return (
-    <div className="min-h-screen pt-20 md:pt-24 pb-20 px-6 md:px-16 bg-background">
-      <div className="max-w-5xl mx-auto">
-        <p className="text-primary text-xs tracking-[0.3em] uppercase mb-3">About the Project</p>
-        <h1 className="font-display text-5xl md:text-6xl mb-8">A Magnum Opus of Modern Living.</h1>
-        <p className="text-lg text-muted-foreground max-w-3xl mb-12 leading-relaxed">
-          Sculpture is the latest residential masterpiece by Vibgyor Reality, developed by Team Atul.
-          Crafted on 1.37 acres in the rapidly evolving Ognaj corridor of Ahmedabad, it brings together
-          modern bungalow-style duplex homes, premium retail shops, and 21 thoughtfully curated amenities.
-        </p>
+    <div className="min-h-screen pb-20 bg-background">
+      {/* Hero */}
+      <div className="relative h-[40vh] md:h-[55vh] overflow-hidden">
+        <img src={aboutHero} alt="Sculpture project exterior" className="absolute inset-0 w-full h-full object-cover" width={1536} height={768} />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
+        <div className="relative h-full flex flex-col justify-end px-6 md:px-16 pb-10 max-w-6xl mx-auto">
+          <p className="text-primary text-xs tracking-[0.3em] uppercase mb-3">About the Project</p>
+          <h1 className="font-display text-5xl md:text-7xl text-foreground">A Magnum Opus of Modern Living.</h1>
+          <p className="text-muted-foreground max-w-2xl mt-4">
+            A residential masterpiece by Vibgyor Reality on 1.37 acres in Ognaj, Ahmedabad — duplex homes,
+            premium retail, and 21 curated amenities.
+          </p>
+        </div>
+      </div>
+
+      <div className="px-6 md:px-16 max-w-5xl mx-auto mt-12">
 
         <div className="grid md:grid-cols-2 gap-10 mb-16">
           <div className="bg-card border border-border rounded-lg p-8">

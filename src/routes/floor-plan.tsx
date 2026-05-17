@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import floorPlan from "@/assets/floor-plan.jpeg";
+import floorplanHero from "@/assets/floorplan-hero.jpg";
 
 export const Route = createFileRoute("/floor-plan")({
   head: () => ({
@@ -24,11 +25,19 @@ const rooms = [
 
 function FloorPlan() {
   return (
-    <div className="min-h-screen pt-20 md:pt-24 pb-20 px-6 md:px-16 bg-background">
-      <div className="max-w-6xl mx-auto">
-        <p className="text-primary text-xs tracking-[0.3em] uppercase mb-3">Floor Plan</p>
-        <h1 className="font-display text-5xl md:text-6xl mb-4">3 BHK Duplex — Lower & Upper Level</h1>
-        <p className="text-muted-foreground mb-12">324 sq.yd · Spacious, light-filled, and thoughtfully zoned across two levels.</p>
+    <div className="min-h-screen pb-20 bg-background">
+      {/* Hero */}
+      <div className="relative h-[40vh] md:h-[55vh] overflow-hidden">
+        <img src={floorplanHero} alt="Sculpture floor plans" className="absolute inset-0 w-full h-full object-cover" width={1536} height={768} />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
+        <div className="relative h-full flex flex-col justify-end px-6 md:px-16 pb-10 max-w-6xl mx-auto">
+          <p className="text-primary text-xs tracking-[0.3em] uppercase mb-3">Floor Plan</p>
+          <h1 className="font-display text-5xl md:text-7xl text-foreground">3 BHK Duplex — Lower & Upper Level</h1>
+          <p className="text-muted-foreground max-w-2xl mt-4">324 sq.yd · Spacious, light-filled, and thoughtfully zoned across two levels.</p>
+        </div>
+      </div>
+
+      <div className="px-6 md:px-16 max-w-6xl mx-auto mt-12">
 
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 bg-card border border-border rounded-2xl overflow-hidden p-4 md:p-6 shadow-elegant">
