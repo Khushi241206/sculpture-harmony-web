@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Phone, Mail, MapPin, Download, Calculator, MessageCircle, CheckCircle2, XCircle } from "lucide-react";
+import contactHero from "@/assets/contact-hero.jpg";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -61,13 +62,21 @@ function Contact() {
   }
 
   return (
-    <div className="min-h-screen pt-12 md:pt-16 pb-20 px-6 md:px-16 bg-background">
-      <div className="max-w-6xl mx-auto">
-        <p className="text-primary text-xs tracking-[0.3em] uppercase mb-3">Contact</p>
-        <h1 className="font-display text-5xl md:text-6xl mb-4">Let's build your story.</h1>
-        <p className="text-muted-foreground max-w-2xl mb-10">
-          Reach out to schedule a site visit, request a brochure, or speak with a Vibgyor Reality advisor.
-        </p>
+    <div className="min-h-screen pb-20 bg-background">
+      {/* Hero */}
+      <div className="relative h-[40vh] md:h-[55vh] overflow-hidden">
+        <img src={contactHero} alt="Vibgyor Reality concierge" className="absolute inset-0 w-full h-full object-cover" width={1536} height={768} />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20" />
+        <div className="relative h-full flex flex-col justify-end px-6 md:px-16 pb-10 max-w-6xl mx-auto">
+          <p className="text-primary text-xs tracking-[0.3em] uppercase mb-3">Contact</p>
+          <h1 className="font-display text-5xl md:text-7xl text-foreground">Let's build your story.</h1>
+          <p className="text-muted-foreground max-w-2xl mt-4">
+            Schedule a site visit, request a brochure, or speak with a Vibgyor Reality advisor.
+          </p>
+        </div>
+      </div>
+
+      <div className="px-6 md:px-16 max-w-6xl mx-auto mt-12">
 
         {/* Quick action bar */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
